@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.kotlin2025.ui.theme.Kotlin2025Theme
 
-const val TAG = "week02"
+const val WEEK2TAG = "week02"
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +30,22 @@ class MainActivity : ComponentActivity() {
             }
         }
         week02Variables()
+        week02Functions()
     }
 }
+fun week02Functions(){
+    Log.d(WEEK2TAG, "week02 function")
+
+    fun introduce(name : String, age : Int) : String{
+        return "Hello Name : $name Age : $age"
+    }
+    fun add(a : Int, b: Int) : Int = a + b
+
+    Log.d(WEEK2TAG, "introduce : ${introduce("Lee", 11)}")
+    Log.d(WEEK2TAG, "add : ${add(1, 10)}")
+}
 fun week02Variables(){
-    Log.d(TAG, "week02 Variables")
+    Log.d(WEEK2TAG, "week02 Variables")
 //    val courseName =  "Mobile"
 //    var week = 1
 //    week = 2
@@ -41,13 +53,13 @@ fun week02Variables(){
     val name = "Android"
     val version = 8.0
 
-    Log.d(TAG, "Hello $name $version")
+    Log.d(WEEK2TAG, "Hello $name $version")
 
     val age : Int = 11
     val height : Double = 11.11
     val isStudent : Boolean = true
 
-    Log.d(TAG, "Age : $age Height : $height isStudnet : $isStudent")
+    Log.d(WEEK2TAG, "Age : $age Height : $height isStudnet : $isStudent")
 }
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
