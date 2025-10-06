@@ -34,10 +34,20 @@ class MainActivity : ComponentActivity() {
 }
 fun week02Variables(){
     Log.d(TAG, "week02 Variables")
-    val courseName =  "Mobile"
-    var week = 1
-    week = 2
-    Log.d(TAG, "$courseName : $week")
+//    val courseName =  "Mobile"
+//    var week = 1
+//    week = 2
+//    Log.d(TAG, "$courseName : $week")
+    val name = "Android"
+    val version = 8.0
+
+    Log.d(TAG, "Hello $name $version")
+
+    val age : Int = 11
+    val height : Double = 11.11
+    val isStudent : Boolean = true
+
+    Log.d(TAG, "Age : $age Height : $height isStudnet : $isStudent")
 }
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
