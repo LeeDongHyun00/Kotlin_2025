@@ -1,6 +1,7 @@
 package com.kotlin2025
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -13,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.kotlin2025.ui.theme.Kotlin2025Theme
 
+const val TAG = "week02"
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +29,16 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        week02Variables()
     }
 }
-
+fun week02Variables(){
+    Log.d(TAG, "week02 Variables")
+    val courseName =  "Mobile"
+    var week = 1
+    week = 2
+    Log.d(TAG, "$courseName : $week")
+}
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
