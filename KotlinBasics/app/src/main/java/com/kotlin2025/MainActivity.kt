@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.kotlin2025.ui.theme.Kotlin2025Theme
 
 const val WEEK2TAG = "week02"
+const val WEEK3TAG = "week03"
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,9 +30,37 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-        week02Variables()
-        week02Functions()
+        //week02Variables()
+        //week02Functions()
+        week03Classes()
     }
+}
+fun week03Classes(){
+    Log.d(WEEK3TAG, "week03 classes")
+
+    class Student{
+        var name : String = ""
+        var age : Int = 0
+
+        fun introduce(){
+            Log.d(WEEK3TAG, "hello i'm $name and $age yeas old")
+        }
+    }
+    val student1 = Student()
+    student1.name = "Kim"
+    student1.age = 11
+    student1.introduce()
+
+    data class Person(val name : String, val age : Int)
+
+    val person1 = Person("Lee", 22)
+    val person2 = Person(name= "Lee", age = 22)
+
+    Log.d(WEEK3TAG, "Person : $person1")
+    Log.d(WEEK3TAG, "Equal? : ${person1 == person2}")
+
+
+
 }
 fun week02Functions(){
     Log.d(WEEK2TAG, "week02 function")
