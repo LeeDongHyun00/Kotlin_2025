@@ -32,19 +32,29 @@ class MainActivity : ComponentActivity() {
         }
         //week02Variables()
         //week02Functions()
-        week03Classes()
+        //week03Classes()
+        week03Collections()
     }
 }
+
+fun week03Collections(){
+    Log.d(WEEK3TAG, "week03 collections")
+
+    val fruits = listOf("apple", "banana", "orange")
+    // fruits.add("kiwi") => err listOf는 add가 안됨
+    Log.d(WEEK3TAG, "Fruits : $fruits")
+
+    for(fruit in fruits) Log.d(WEEK3TAG, "fruit : $fruit")
+
+}
+
 fun week03Classes(){
     Log.d(WEEK3TAG, "week03 classes")
 
     class Student{
         var name : String = ""
         var age : Int = 0
-
-        fun introduce(){
-            Log.d(WEEK3TAG, "hello i'm $name and $age yeas old")
-        }
+        fun introduce() = Log.d(WEEK3TAG, "hello i'm $name and $age yeas old")
     }
     val student1 = Student()
     student1.name = "Kim"
