@@ -11,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.kotlin2025.ui.theme.Kotlin2025Theme
 
@@ -87,18 +88,25 @@ fun week03Classes(){
     p1.introduce()
     p1.birth()
 
-    class Animal(var species: String){
+    open class Animal(var species: String){
         var weight: Double = 0.0
         constructor(species: String, weight: Double) : this(species){
             this.weight = weight
             Log.d(WEEK3TAG, "$species 의 무게 : 이제 $weight kg")
         }
-        fun makeSound(){
+        open fun makeSound(){
             Log.d(WEEK3TAG, "$species 가 소리를 냅니다")
+        }
+    }
+    class Dog(species: String, weight: Double, val breed: String) : Animal(species, weight){
+        override fun makeSound() {
+            Log.d(WEEK3TAG, "$breed ($species)가 멍멍 짖습니다")
         }
     }
     val puppy = Animal("강아지", 6.5)
     puppy.makeSound()
+    val dog = Dog("개",12.5,"골든 리트리버")
+    dog.makeSound()
 }
 
 fun week02Functions(){
@@ -127,7 +135,7 @@ fun week02Variables(){
     val height : Double = 11.11
     val isStudent : Boolean = true
 
-    Log.d(WEEK2TAG, "Age : $age Height : $height isStudnet : $isStudent")
+    Log.d(WEEK2TAG, "Age : $age Height : $height isStudent : $isStudent")
 }
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
