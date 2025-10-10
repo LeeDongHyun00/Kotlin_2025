@@ -32,24 +32,31 @@ class MainActivity : ComponentActivity() {
         }
         //week02Variables()
         //week02Functions()
-        //week03Classes()
+        week03Classes()
         week03Collections()
     }
 }
 
 fun week03Collections(){
-    Log.d(WEEK3TAG, "week03 collections")
+    Log.d(WEEK3TAG, "===week03 collections===")
 
     val fruits = listOf("apple", "banana", "orange")
     // fruits.add("kiwi") => err listOf는 add가 안됨
+    val mutableFruits = mutableListOf("kiwi", "orange")
+    mutableFruits.add("mango")
+
     Log.d(WEEK3TAG, "Fruits : $fruits")
+    Log.d(WEEK3TAG, "Mutable Fruits : $mutableFruits")
 
-    for(fruit in fruits) Log.d(WEEK3TAG, "fruit : $fruit")
-
+    val scores = mapOf("kim" to 97, "lee" to 10, "bak" to 50)
+    Log.d(WEEK3TAG, "Scores : $scores")
+    //for(fruit in fruits) Log.d(WEEK3TAG, "fruit : $fruit")
+    for(fruit in mutableFruits) Log.d(WEEK3TAG, "mutable fruit : $fruit")
+    scores.forEach{(name, score) -> Log.d(WEEK3TAG, "$name scored $score")}
 }
 
 fun week03Classes(){
-    Log.d(WEEK3TAG, "week03 classes")
+    Log.d(WEEK3TAG, "===week03 classes===")
 
     class Student{
         var name : String = ""
@@ -61,17 +68,39 @@ fun week03Classes(){
     student1.age = 11
     student1.introduce()
 
-    data class Person(val name : String, val age : Int)
+//    data class Person(val name : String, val age : Int)
+//
+//    val person1 = Person("Lee", 22)
+//    val person2 = Person(name= "Lee", age = 22)
+//
+//    Log.d(WEEK3TAG, "Person : $person1")
+//    Log.d(WEEK3TAG, "Equal? : ${person1 == person2}")
+    class Person(val name: String, var age:Int){
+        fun introduce() = Log.d(WEEK3TAG, "Hello! $name $age years old")
+        fun birth(){
+            age++
+            Log.d(WEEK3TAG, "Today is $name's birthday, now $age")
+        }
 
-    val person1 = Person("Lee", 22)
-    val person2 = Person(name= "Lee", age = 22)
+    }
+    val p1 = Person("Hong", 11)
+    p1.introduce()
+    p1.birth()
 
-    Log.d(WEEK3TAG, "Person : $person1")
-    Log.d(WEEK3TAG, "Equal? : ${person1 == person2}")
-
-
-
+    class Animal(var species: String){
+        var weight: Double = 0.0
+        constructor(species: String, weight: Double) : this(species){
+            this.weight = weight
+            Log.d(WEEK3TAG, "$species 의 무게 : 이제 $weight kg")
+        }
+        fun makeSound(){
+            Log.d(WEEK3TAG, "$species 가 소리를 냅니다")
+        }
+    }
+    val puppy = Animal("강아지", 6.5)
+    puppy.makeSound()
 }
+
 fun week02Functions(){
     Log.d(WEEK2TAG, "week02 function")
 
