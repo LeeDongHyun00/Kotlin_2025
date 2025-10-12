@@ -1,11 +1,8 @@
 package com.appweek04
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 const val TAG = "week04"
@@ -14,19 +11,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-    val editTextName = findViewById<EditText>(R.id.editTextName)
-    val greetBtn = findViewById<Button>(R.id.greetBtn)
-    val textViewGreeting = findViewById<TextView>(R.id.textViewGreeting)
-
-    greetBtn.setOnClickListener{
-        val name= editTextName.text.toString().trim()
-        var greet :String = ""
-        if (name.isNotEmpty()) {greet = "hello $name"}
-        else {greet = "what's your name?"}
-        textViewGreeting.text = greet
-        textViewGreeting.visibility=View.VISIBLE
-        Log.d(TAG, "${textViewGreeting.text}")
-    }
+        val buttonGreeting = findViewById<Button>(R.id.buttonGreeting)
+        buttonGreeting.setOnClickListener {
+            startActivity(Intent(this, GreetingActivity::class.java))
+        }
 
     }
 }
