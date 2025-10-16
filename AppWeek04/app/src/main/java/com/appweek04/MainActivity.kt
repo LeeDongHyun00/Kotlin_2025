@@ -1,6 +1,8 @@
 package com.appweek04
 
 import android.content.Intent
+
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -12,9 +14,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val buttonGreeting = findViewById<Button>(R.id.buttonGreeting)
+        val buttonColor = findViewById<Button>(R.id.buttonColor)
         buttonGreeting.setOnClickListener {
             startActivity(Intent(this, GreetingActivity::class.java))
         }
-
+        buttonColor.setOnClickListener {
+            startActivity(Intent(this, ColorActivity::class.java))
+        }
     }
 }
